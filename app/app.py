@@ -9,8 +9,13 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
 
 migrate = Migrate(app, db)
+db.init_app(app)
 
 
 @app.route("/")
 def abode():
     return "<h1>Welcome to Abode database</h1>"
+
+
+if __name__ == "__main__":
+    app.run(port=5555, debug=True)
