@@ -19,7 +19,7 @@ with app.app_context():
 
         estate = Estate(
             name=fake.name(),
-            location=fake.location(),
+            location=fake.city(),
             price=random.randint(50, 500)
         )
         estates.append(estate)
@@ -30,7 +30,7 @@ with app.app_context():
     for i in range(10):
         house = House(
 
-            name=fake.name(),
+            tenant=fake.name(),
             num_of_rooms=random.randint(1, 6),
             price=random.randint(50, 500),
             estate_id=random.randint(1, 10)
