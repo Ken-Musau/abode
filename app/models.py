@@ -6,3 +6,28 @@ metadata = MetaData(naming_convention={
 })
 
 db = SQLAlchemy(metadata=metadata)
+
+
+class Estate(db.Model):
+    __tablename__ = "estates"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    locaiton = db.Column(db.String)
+    price = db.Column(db.Integer)
+
+    houses = db.relationship("House", back_populates="Estate")
+
+    def __repr__(self):
+        return f"{self.name}"
+
+
+class House(db.Model):
+    __tablename__ = "houses"
+
+    id = db.Column(db.Integer, primary_key=True)
+    tenant = db.Column(db.String)
+    num_of_rooms = db.Column(db.Integer)
+    price = db.Column(db.Integer)
+
+    estate_id = db.Column(db.Integer, db.ForeignKey("estates.id"))
