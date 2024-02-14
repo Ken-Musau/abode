@@ -13,10 +13,10 @@ class Estate(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
-    locaiton = db.Column(db.String)
+    location = db.Column(db.String)
     price = db.Column(db.Integer)
 
-    houses = db.relationship("House", back_populates="Estate")
+    houses = db.relationship("House", back_populates="estate")
 
     def __repr__(self):
         return f"{self.name}"
