@@ -20,9 +20,9 @@ def abode():
 
 @app.route("/estates")
 def estates():
-    estates = [estate for estate in Estate.query.all()]
+    estates = [estate.to_dict() for estate in Estate.query.all()]
 
-    return make_response(jsonify(estates), 200)
+    return make_response(estates, 200)
 
 
 if __name__ == "__main__":

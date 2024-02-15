@@ -12,7 +12,7 @@ db = SQLAlchemy(metadata=metadata)
 class Estate(db.Model, SerializerMixin):
     __tablename__ = "estates"
 
-    serialize_rules = ("-houses.estate")
+    serialize_rules = ("-houses.estate",)
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
@@ -28,7 +28,7 @@ class Estate(db.Model, SerializerMixin):
 class House(db.Model, SerializerMixin):
     __tablename__ = "houses"
 
-    serialize_rules = ("-estate.houses")
+    serialize_rules = ("-estate.houses",)
 
     id = db.Column(db.Integer, primary_key=True)
     tenant = db.Column(db.String)
