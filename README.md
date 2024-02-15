@@ -7,7 +7,7 @@ Abode Database is a Flask application for managing real estate properties and ho
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your_username/abode-database.git
+    git clone https://github.com/Ken-Musau/abode-database.git
     ```
 
 2. Navigate to the project directory:
