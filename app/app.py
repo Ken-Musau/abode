@@ -27,6 +27,17 @@ class Welcome(Resource):
 api.add_resource(Welcome, "/")
 
 
+@app.errorhandler(404)
+def handle_not_found(e):
+
+    response = make_response(
+        "Not Found: The requested resource does not exist.",
+        404
+    )
+
+    return response
+
+
 class Estates(Resource):
     def get(self):
         estates = [estate.to_dict() for estate in Estate.query.all()]
